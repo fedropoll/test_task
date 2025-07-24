@@ -39,7 +39,6 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'users',
-    'referrals',
     'drf_yasg',
 
 ]
