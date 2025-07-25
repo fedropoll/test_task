@@ -1,18 +1,19 @@
+# users/serializers.py
 from rest_framework import serializers
 from .models import User
 
-class PhoneSerializer(serializers.Serializer):
-    phone_number = serializers.CharField(max_length=20)
+class EmailSerializer(serializers.Serializer):
+    email = serializers.EmailField()
 
 class VerifySerializer(serializers.Serializer):
-    phone_number = serializers.CharField(max_length=20)
+    email = serializers.EmailField()
     code = serializers.CharField(max_length=4)
 
 class ActivateCodeSerializer(serializers.Serializer):
-    phone_number = serializers.CharField(max_length=20)
+    email = serializers.EmailField()
     invite_code = serializers.CharField(max_length=6)
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['phone_number', 'invite_code', 'activated_code', 'is_verified']
+        fields = ['email', 'invite_code', 'activated_code', 'is_verified']
